@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>${OUTPUT_TYPE}</OutputType>
+        <TargetFramework>${TARGET_FRAMEWORK}</TargetFramework>
+    </PropertyGroup>
+</Project>

@@ -1,0 +1,14 @@
+using System;
+using System.Threading.Tasks;
+
+namespace ${PROJECT_NAME};
+
+public static class Program
+{
+    public static Task Main(string[] args)
+    {
+        Console.WriteLine("Hello, world!");
+
+        return Task.CompletedTask;
+    }
+}

@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <PackAsTool>true</PackAsTool>
+        <ToolCommandName>frostseek</ToolCommandName>
+        <PackageId>Ayasuna.Frostseek</PackageId>
+        <Description>Ayasuna.Frostseek is a generator for C# solutions and projects.</Description>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+        <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <EmbeddedResource Update="Resources\Messages.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+
+        <None Include="../../../LICENSE" Pack="true" PackagePath="" />
+        <None Include="../../../docs/README.md" Pack="true" PackagePath="" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Compile Update="Resources\Messages.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Messages.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+</Project>

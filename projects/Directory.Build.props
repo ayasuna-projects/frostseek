@@ -1,0 +1,25 @@
+<Project>
+    <PropertyGroup>
+        <FrostseekRootOutputPath>$(MSBuildThisFileDirectory)../artifacts/$(FrostseekProjectType)/$(MSBuildProjectName)/</FrostseekRootOutputPath>
+        
+        <BaseOutputPath>$(FrostseekRootOutputPath)bin</BaseOutputPath>
+        <PackageOutputPath>$(FrostseekRootOutputPath)lib</PackageOutputPath>
+        <BaseIntermediateOutputPath>$(FrostseekRootOutputPath)obj</BaseIntermediateOutputPath>
+        <MSBuildProjectExtensionsPath>$(FrostseekRootOutputPath)obj</MSBuildProjectExtensionsPath>
+        
+        <Authors>Philipp Schmalenbach</Authors>
+        <Nullable>enable</Nullable>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <LangVersion>10</LangVersion>
+        
+        <AssemblyVersion>$(FrostseekSolutionVersion)</AssemblyVersion>
+        <FileVersion>$(FrostseekSolutionVersion)</FileVersion>
+        <Version>$(FrostseekSolutionVersion)</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Folder Include="$(MSBuildProjectDirectory)/Resources;$(MSBuildProjectDirectory)/Sources" />
+
+        <EmbeddedResource Include="$(MSBuildProjectDirectory)/Resources/**/*" Exclude="$(MSBuildProjectDirectory)/Resources/**/*.resx;$(MSBuildProjectDirectory)/Resources/**/*.cs"/>
+    </ItemGroup>
+</Project>
