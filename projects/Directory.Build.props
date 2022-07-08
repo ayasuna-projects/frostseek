@@ -21,11 +21,15 @@
         <AssemblyVersion>$(FrostseekSolutionVersion)</AssemblyVersion>
         <FileVersion>$(FrostseekSolutionVersion)</FileVersion>
         <Version>$(FrostseekSolutionVersion)</Version>
+        
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
         <Folder Include="$(MSBuildProjectDirectory)/Resources;$(MSBuildProjectDirectory)/Sources" />
 
         <EmbeddedResource Include="$(MSBuildProjectDirectory)/Resources/**/*" Exclude="$(MSBuildProjectDirectory)/Resources/**/*.resx;$(MSBuildProjectDirectory)/Resources/**/*.cs"/>
+
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
     </ItemGroup>
 </Project>
