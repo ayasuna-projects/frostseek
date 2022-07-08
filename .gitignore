@@ -18,5 +18,6 @@
 !/docs/**
 !/projects/**
 !/.idea/**
+!/.github/**
 
 /projects/**/*.DotSettings.user
