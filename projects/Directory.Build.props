@@ -21,7 +21,8 @@
         <AssemblyVersion>$(FrostseekSolutionVersion)</AssemblyVersion>
         <FileVersion>$(FrostseekSolutionVersion)</FileVersion>
         <Version>$(FrostseekSolutionVersion)</Version>
-        
+
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
     </PropertyGroup>
 
