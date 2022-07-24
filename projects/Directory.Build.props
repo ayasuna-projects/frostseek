@@ -2,7 +2,7 @@
     <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
         <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 
-        <FrostseekSolutionVersion Condition="'$(GITHUB_WORKFLOW)' == 'Publish'">$(GITHUB_REF_NAME)</FrostseekSolutionVersion>
+        <FrostseekSolutionVersion Condition="$(GITHUB_REF.StartsWith('refs/tags/'))">$(GITHUB_REF_NAME)</FrostseekSolutionVersion>
     </PropertyGroup>
     
     <PropertyGroup>
