@@ -14,4 +14,10 @@ public enum ProjectType
     /// Defines that a test project should be created
     /// </summary>
     Test = 1,
+    
+    
+    /// <summary>
+    /// Defines that a meta project should be created
+    /// </summary>
+    Meta = 2,
 }

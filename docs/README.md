@@ -44,7 +44,8 @@ Which essentially means that the following directory structure is created:
 | build                  | Build related files go in here, like for example a `build.sh` (which might build the whole solution) or docker build related files.                                                                                                                                                    | 
 | docs                   | (Optional) Will only be generated if `--documentation` is not `None`. The documentation of the solution belongs in here.                                                                                                                                                               | 
 | projects/main          | The directory for `main` projects.                                                                                                                                                                                                                                                     | 
-| projects/test          | The directory for `test` projects.                                                                                                                                                                                                                                                     | 
+| projects/meta          | The directory for `meta` projects.                                                                                                                                                                                                                                                     |
+| projects/test          | The directory for `test` projects.                                                                                                                                                                                                                                                     |  
 | .editorconfig          | The .editorconfig file of the solution.                                                                                                                                                                                                                                                | 
 | .gitignore             | (Optional) Will only be generated if `--git` is `true`.                                                                                                                                                                                                                                | 
 | README.md              | The README of the solution.                                                                                                                                                                                                                                                            | 
@@ -79,7 +80,7 @@ Determines the documentation type that should be initialized for the new solutio
 frostseek new project 
   --name $NEW_PROJECT_NAME 
   --solution $SOLUTION_FILE
-  [--type Main|Test]
+  [--type Main|Meta|Test]
   [--template Application|Library|XUnit]
 ```
 
@@ -101,13 +102,15 @@ The name of the new project.
 
 The solution (file) to add the new project to.
 
-`--type Main|Test`
+`--type Main|Meta|Test`
 
 Determines the type of project that should be created.
 
 `Main` (default) will create the new project in the `projects/main` subdirectory of the solution.
 
 `Test` will create the new project in the `projects/test` subdirectory of the solution.
+
+`Meta` will create the new project in the `projects/meta` subdirectory of the solution.
 
 `--template Application|Library|XUnit`
 

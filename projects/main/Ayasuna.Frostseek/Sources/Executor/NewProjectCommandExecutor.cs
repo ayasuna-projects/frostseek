@@ -1,5 +1,6 @@
 namespace Ayasuna.Frostseek.Executor;
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
@@ -40,7 +41,14 @@ public sealed class NewProjectCommandExecutor : ICommandExecutor<NewProjectComma
 
         var workingDirectory = options.Solution.Directory!;
 
-        var type = options.Type == ProjectType.Main ? "main" : "test";
+
+        var type = options.Type switch
+        {
+            ProjectType.Main => "main",
+            ProjectType.Test => "test",
+            ProjectType.Meta => "meta",
+            _ => throw new ArgumentOutOfRangeException()
+        };
 
         var targetDirectory = new DirectoryInfo(Path.Join(workingDirectory.FullName, "projects", type, options.Name));
 

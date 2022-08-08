@@ -242,6 +242,15 @@ public sealed class NewSolutionCommandExecutor : ICommandExecutor<NewSolutionCom
             directoryBuildPropsFileName,
             (await _resourceLoader.LoadTemplate(Path.Join(ResourcesBasePath, propertiesDirectory, "TestDirectory.Build.props"))).ReplacePlaceholders(placeholderBindings)
         );
+        
+        var metaDirectory = await FileSystemUtils.CreateDirectory(projectsDirectory, "meta");
+
+        await FileSystemUtils.CreateFile
+        (
+            metaDirectory,
+            directoryBuildPropsFileName,
+            (await _resourceLoader.LoadTemplate(Path.Join(ResourcesBasePath, propertiesDirectory, "MetaDirectory.Build.props"))).ReplacePlaceholders(placeholderBindings)
+        );
 
 
         return new SubDirectorySetupResult(new[] { mainDirectory, testDirectory });

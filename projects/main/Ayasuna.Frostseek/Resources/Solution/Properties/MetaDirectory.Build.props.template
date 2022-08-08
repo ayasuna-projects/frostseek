@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup>
+        <FrostseekProjectType>meta</FrostseekProjectType>
+    </PropertyGroup>
+    
+    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+</Project>
