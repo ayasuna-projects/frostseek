@@ -45,7 +45,7 @@ Which essentially means that the following directory structure is created:
 | docs                   | (Optional) Will only be generated if `--documentation` is not `None`. The documentation of the solution belongs in here.                                                                                                                                                               | 
 | projects/main          | The directory for `main` projects.                                                                                                                                                                                                                                                     | 
 | projects/meta          | The directory for `meta` projects.                                                                                                                                                                                                                                                     |
-| projects/test          | The directory for `test` projects.                                                                                                                                                                                                                                                     |  
+| projects/test          | The directory for `test` projects.                                                                                                                                                                                                                                                     |   
 | .editorconfig          | The .editorconfig file of the solution.                                                                                                                                                                                                                                                | 
 | .gitignore             | (Optional) Will only be generated if `--git` is `true`.                                                                                                                                                                                                                                | 
 | README.md              | The README of the solution.                                                                                                                                                                                                                                                            | 
@@ -116,10 +116,11 @@ Determines the type of project that should be created.
 
 Determines the template that should be applied when creating the project.
 
-`Application` will create a new C# project with it's output type set to `Exe` and it's target framework set to `net6.0`.
+`Application` will create a new C# project with it's output type set to `Exe` and it's target frameworks set
+to `$(FrostseekApplicationTargetFrameworks)`.
 
 `Library` (default) will create a new C# project with it's output type set to `Library` and it's target framework set
-to `netstandard2.1`
+to `$(FrostseekLibraryTargetFrameworks)`
 
 `XUnit` will create a new C# unit test project that uses xUnit.
 
