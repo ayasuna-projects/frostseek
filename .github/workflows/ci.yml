@@ -9,7 +9,7 @@ on:
 
 env:
     BUILD_CONFIGURATION: ${{ fromJSON('["Debug", "Release"]')[startsWith(github.ref, 'refs/tags/')] }}
-    BUILD_DOTNET_VERSION: 6.0.x
+    BUILD_DOTNET_VERSION: 7.0.x
 
 jobs:
     build:
