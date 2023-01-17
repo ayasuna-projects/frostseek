@@ -81,6 +81,7 @@ frostseek new project
   --name $NEW_PROJECT_NAME 
   --solution $SOLUTION_FILE
   [--type Main|Meta|Test]
+  [--target /relative/target/directory]
   [--template Application|Library|XUnit]
 ```
 
@@ -111,6 +112,11 @@ Determines the type of project that should be created.
 `Test` will create the new project in the `projects/test` subdirectory of the solution.
 
 `Meta` will create the new project in the `projects/meta` subdirectory of the solution.
+
+`--target /relative/target/directory`
+
+The directory, relative to the default target directory for the selected project type, in which the project should be created e.g. if the `target` is `domain` or `/domain` and the `type` is `main`
+the project will be created in the `projects/main/domain` directory instead of the `projects/main` directory.
 
 `--template Application|Library|XUnit`
 

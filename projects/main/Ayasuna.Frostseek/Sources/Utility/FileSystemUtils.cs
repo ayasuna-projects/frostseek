@@ -22,7 +22,8 @@ public static class FileSystemUtils
     }
 
     /// <summary>
-    /// Creates a new directory with the name <paramref name="directoryName"/> within the given <paramref name="baseDirectory"/>
+    /// Creates a new directory with the name <paramref name="directoryName"/> within the given <paramref name="baseDirectory"/>.
+    /// If the directory already exists nothing happens.
     /// </summary>
     /// <param name="baseDirectory">The directory to create the new directory in</param>
     /// <param name="directoryName">The name of the directory to create</param>

@@ -71,6 +71,13 @@ public static class RootCommandExtensions
             getDefaultValue: () => ProjectType.Main
         );
 
+        var targetOption = new Option<string>
+        (
+            name: "--target",
+            description: "The directory in which to create the project (relative to the default project directory of the selected type)",
+            getDefaultValue: () => "."
+        );
+
         var projectTemplateOption = new Option<ProjectTemplate>
         (
             name: "--template",
@@ -87,6 +94,7 @@ public static class RootCommandExtensions
         newProjectSubCommand.AddOption(nameOption);
         newProjectSubCommand.AddOption(solutionOption);
         newProjectSubCommand.AddOption(projectTypeOption);
+        newProjectSubCommand.AddOption(targetOption);
         newProjectSubCommand.AddOption(projectTemplateOption);
 
         var executor = serviceProvider.GetRequiredService<ICommandExecutor<NewProjectCommandOptions>>();
@@ -98,6 +106,7 @@ public static class RootCommandExtensions
                 {
                     var nameOptionValue = GetValueForOption(ctx.ParseResult, nameOption);
                     var projectTypeOptionValue = GetValueForOption(ctx.ParseResult, projectTypeOption);
+                    var projectTargetOptionValue = GetValueForOption(ctx.ParseResult, targetOption);
                     var projectTemplateOptionValue = GetValueForOption(ctx.ParseResult, projectTemplateOption);
                     var solutionOptionValue = GetValueForOption(ctx.ParseResult, solutionOption);
 
@@ -107,6 +116,7 @@ public static class RootCommandExtensions
                         (
                             nameOptionValue,
                             projectTypeOptionValue,
+                            projectTargetOptionValue,
                             projectTemplateOptionValue,
                             Path.IsPathRooted(solutionOptionValue.ToString())
                                 ? solutionOptionValue

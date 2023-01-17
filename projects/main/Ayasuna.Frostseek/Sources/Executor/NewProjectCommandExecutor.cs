@@ -3,6 +3,7 @@ namespace Ayasuna.Frostseek.Executor;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Data;
@@ -50,7 +51,22 @@ public sealed class NewProjectCommandExecutor : ICommandExecutor<NewProjectComma
             _ => throw new ArgumentOutOfRangeException()
         };
 
-        var targetDirectory = new DirectoryInfo(Path.Join(workingDirectory.FullName, "projects", type, options.Name));
+        var targetParts = options.Target.Split(new[] { '/', '\\' }, StringSplitOptions.RemoveEmptyEntries).Where(e => e != "." && e != "..").ToList();
+
+        var currentTargetDirectory = Path.Join(workingDirectory.FullName, "projects", type);
+        foreach (var targetPart in targetParts)
+        {
+            currentTargetDirectory = Path.Join(currentTargetDirectory, targetPart);
+
+            if (!Directory.Exists(currentTargetDirectory))
+            {
+                var directoryInfo = Directory.CreateDirectory(currentTargetDirectory);
+                await FileSystemUtils.CreateFile(directoryInfo, "Directory.Build.props", await _resourceLoader.LoadTemplate(Path.Join(ResourcesBasePath, "Properties", "TargetDirectory.Build.props")));
+            }
+        }
+        
+        var targetDirectory = new DirectoryInfo(Path.Join(workingDirectory.FullName, "projects", targetParts.Aggregate(type, Path.Join), options.Name));
+
 
         var placeholders = new Dictionary<string, string>
         {
@@ -78,7 +94,7 @@ public sealed class NewProjectCommandExecutor : ICommandExecutor<NewProjectComma
             (await _resourceLoader.LoadTemplate(Path.Join(ResourcesBasePath, "Project.csproj.DotSettings"))).ReplacePlaceholders(placeholders)
         );
 
-        if (options.Template == ProjectTemplate.Application && options.Type == ProjectType.Main)
+        if (options is { Template: ProjectTemplate.Application, Type: ProjectType.Main })
         {
             await FileSystemUtils.CreateFile(sourcesDirectory, "Program.cs", (await _resourceLoader.LoadTemplate(Path.Join(ResourcesBasePath, "Program"))).ReplacePlaceholders(placeholders));
         }
@@ -87,7 +103,7 @@ public sealed class NewProjectCommandExecutor : ICommandExecutor<NewProjectComma
         (
             options.Solution,
             new FileInfo(Path.Join(targetDirectory.FullName, projectFileName)),
-            type.Capitalize(),
+            targetParts.Aggregate(type.Capitalize(), (a, b) => Path.Join(a, b.Capitalize())),
             cancellationToken
         );
 
