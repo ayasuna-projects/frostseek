@@ -17,7 +17,8 @@ public static class StringExtensions
     /// <returns>A new string in which the placeholders, for which a binding could be found, are replaced with value of the binding</returns>
     public static string ReplacePlaceholders(this string self, IDictionary<string, string> bindings)
     {
-        return Regex.Replace(
+        return Regex.Replace
+        (
             self,
             "\\${(.*?)}",
             match =>

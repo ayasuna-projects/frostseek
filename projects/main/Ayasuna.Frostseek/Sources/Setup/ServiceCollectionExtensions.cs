@@ -39,7 +39,8 @@ public static class ServiceCollectionExtensions
             .AddSingleton<IDotnetOperationsProvider, DotnetCliUsingDotnetOperationsProvider>()
             .AddSingleton<ICommandExecutor<NewSolutionCommandOptions>, NewSolutionCommandExecutor>()
             .AddSingleton<ICommandExecutor<NewProjectCommandOptions>, NewProjectCommandExecutor>()
-            .AddSingleton(
+            .AddSingleton
+            (
                 sp =>
                 {
                     var rootCommand = new RootCommand();

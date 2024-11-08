@@ -36,7 +36,8 @@ public sealed class DocsifyCliUsingDocsifyOperationsProvider : IDocsifyOperation
         // TODO: This acts as a workaround for now as docsify expects the document directory to not exist by default. 
         directory.Delete();
 
-        await ProcessUtils.ExecuteProcess(
+        await ProcessUtils.ExecuteProcess
+        (
             parentDirectory,
             "docsify",
             $"init {directory}",

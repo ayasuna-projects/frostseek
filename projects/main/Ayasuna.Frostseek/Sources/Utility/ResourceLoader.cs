@@ -15,7 +15,7 @@ public sealed class ResourceLoader : IResourceLoader
     private const string Slash = "/";
 
     private const string Backslash = "\\";
-    
+
     private const string TemplateExtension = ".template";
 
     /// <inheritdoc />

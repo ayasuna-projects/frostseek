@@ -27,7 +27,8 @@ public sealed class DotnetCliUsingDotnetOperationsProvider : IDotnetOperationsPr
     /// <inheritdoc />
     public Task CreateSolution(DirectoryInfo targetDirectory, string name, CancellationToken cancellationToken)
     {
-        return ProcessUtils.ExecuteProcess(
+        return ProcessUtils.ExecuteProcess
+        (
             targetDirectory,
             Dotnet,
             $"new sln --name {name} --output {targetDirectory}",
@@ -40,7 +41,8 @@ public sealed class DotnetCliUsingDotnetOperationsProvider : IDotnetOperationsPr
     public Task AddProjectToSolution(FileInfo solution, FileInfo project, string solutionFolder, CancellationToken cancellationToken)
     {
         return ProcessUtils
-            .ExecuteProcess(
+            .ExecuteProcess
+            (
                 solution.Directory!,
                 Dotnet,
                 $"sln {solution} add {project} --solution-folder {solutionFolder}",

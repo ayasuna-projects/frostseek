@@ -67,7 +67,11 @@ public sealed class NewSolutionCommandExecutor : ICommandExecutor<NewSolutionCom
             throw new ArgumentException(string.Format(Messages.NewSolutionCommandExecutor_TargetDirectoryIsNotEmpty, rootDirectory));
         }
 
-        var placeholderBindings = new Dictionary<string, string> { { "YEAR", DateTimeOffset.UtcNow.Year.ToString() }, { "PROJECT_NAME", options.Name } };
+        var placeholderBindings = new Dictionary<string, string>
+        {
+            { "YEAR", DateTimeOffset.UtcNow.Year.ToString() },
+            { "PROJECT_NAME", options.Name }
+        };
 
         var setupResults = new List<SubDirectorySetupResult>
         {
@@ -95,7 +99,8 @@ public sealed class NewSolutionCommandExecutor : ICommandExecutor<NewSolutionCom
     /// <param name="leafDirectories">The created leaf directories</param>
     /// <param name="placeholderBindings">The available placeholder bindings</param>
     /// <param name="cancellationToken">The cancellation token to use</param>
-    private async Task SetupGit(DirectoryInfo rootDirectory, IEnumerable<DirectoryInfo> leafDirectories, IDictionary<string, string> placeholderBindings, CancellationToken cancellationToken)
+    private async Task SetupGit
+        (DirectoryInfo rootDirectory, IEnumerable<DirectoryInfo> leafDirectories, IDictionary<string, string> placeholderBindings, CancellationToken cancellationToken)
     {
         foreach (var leafDirectory in leafDirectories)
         {
@@ -138,7 +143,12 @@ public sealed class NewSolutionCommandExecutor : ICommandExecutor<NewSolutionCom
             ".editorconfig",
             (await _resourceLoader.LoadTemplate(Path.Join(ResourcesBasePath, "Editorconfig"))).ReplacePlaceholders(placeholderBindings)
         );
-        await FileSystemUtils.CreateFile(rootDirectory, "README.md", (await _resourceLoader.LoadTemplate(Path.Join(ResourcesBasePath, "README.md"))).ReplacePlaceholders(placeholderBindings));
+        await FileSystemUtils.CreateFile
+        (
+            rootDirectory,
+            "README.md",
+            (await _resourceLoader.LoadTemplate(Path.Join(ResourcesBasePath, "README.md"))).ReplacePlaceholders(placeholderBindings)
+        );
 
         switch (copyrightLicense)
         {
@@ -242,7 +252,7 @@ public sealed class NewSolutionCommandExecutor : ICommandExecutor<NewSolutionCom
             directoryBuildPropsFileName,
             (await _resourceLoader.LoadTemplate(Path.Join(ResourcesBasePath, propertiesDirectory, "TestDirectory.Build.props"))).ReplacePlaceholders(placeholderBindings)
         );
-        
+
         var metaDirectory = await FileSystemUtils.CreateDirectory(projectsDirectory, "meta");
 
         await FileSystemUtils.CreateFile
@@ -253,7 +263,13 @@ public sealed class NewSolutionCommandExecutor : ICommandExecutor<NewSolutionCom
         );
 
 
-        return new SubDirectorySetupResult(new[] { mainDirectory, testDirectory });
+        return new SubDirectorySetupResult
+        (
+            [
+                mainDirectory,
+                testDirectory
+            ]
+        );
     }
 
     /// <summary>

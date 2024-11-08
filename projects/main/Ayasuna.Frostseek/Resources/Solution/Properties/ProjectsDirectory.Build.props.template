@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <FrostseekLibraryTargetFrameworks>netstandard2.1</FrostseekLibraryTargetFrameworks>
-        <FrostseekApplicationTargetFrameworks>net7.0</FrostseekApplicationTargetFrameworks>
+        <FrostseekApplicationTargetFrameworks>net8.0</FrostseekApplicationTargetFrameworks>
 
         <FrostseekRootOutputPath>$(MSBuildThisFileDirectory)../artifacts/$(FrostseekProjectType)/$(MSBuildProjectName)/</FrostseekRootOutputPath>
     </PropertyGroup>
@@ -15,7 +15,7 @@
         <Copyright>Copyright ${YEAR}</Copyright>
         <Nullable>enable</Nullable>
         <NeutralLanguage>en-US</NeutralLanguage>
-        <LangVersion>11</LangVersion>
+        <LangVersion>12</LangVersion>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
         
         <AssemblyVersion>$(FrostseekSolutionVersion)</AssemblyVersion>

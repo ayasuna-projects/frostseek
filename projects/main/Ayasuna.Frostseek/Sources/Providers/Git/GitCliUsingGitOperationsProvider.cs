@@ -27,7 +27,8 @@ public sealed class GitCliUsingGitOperationsProvider : IGitOperationsProvider
     /// <inheritdoc />
     public Task Init(DirectoryInfo directory, CancellationToken cancellationToken)
     {
-        return ProcessUtils.ExecuteProcess(
+        return ProcessUtils.ExecuteProcess
+        (
             directory,
             Git,
             "init",
@@ -39,7 +40,8 @@ public sealed class GitCliUsingGitOperationsProvider : IGitOperationsProvider
     /// <inheritdoc />
     public Task AddAll(DirectoryInfo directory, CancellationToken cancellationToken)
     {
-        return ProcessUtils.ExecuteProcess(
+        return ProcessUtils.ExecuteProcess
+        (
             directory,
             Git,
             "add .",
