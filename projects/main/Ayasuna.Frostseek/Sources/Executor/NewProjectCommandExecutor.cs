@@ -83,7 +83,7 @@ public sealed class NewProjectCommandExecutor : ICommandExecutor<NewProjectComma
             { "PROJECT_NAME", options.Name },
             { "PROJECT_TYPE", type },
             { "OUTPUT_TYPE", options.Template == ProjectTemplate.Application && options.Type == ProjectType.Main ? "Exe" : "Library" },
-            { "TARGET_FRAMEWORKS", options.Template == ProjectTemplate.Application ? "$(FrostseekApplicationTargetFrameworks)" : "$(FrostseekLibraryTargetFrameworks)" },
+            { "TARGET_FRAMEWORKS", "$(FrostseekDefaultTargetFrameworks)" },
         };
 
         var sourcesDirectory = await FileSystemUtils.CreateDirectory(targetDirectory, "Sources");

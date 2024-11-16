@@ -6,8 +6,8 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <FrostseekLibraryTargetFrameworks>netstandard2.1</FrostseekLibraryTargetFrameworks>
-        <FrostseekApplicationTargetFrameworks>net8.0</FrostseekApplicationTargetFrameworks>
+        <FrostseekDefaultTargetFrameworks>net8.0;net9.0</FrostseekDefaultTargetFrameworks>
+        <FrostseekAnalyzerTargetFramework>netstandard2.0</FrostseekAnalyzerTargetFramework>
 
         <FrostseekRootOutputPath>$(MSBuildThisFileDirectory)../artifacts/$(FrostseekProjectType)/$(MSBuildProjectName)/</FrostseekRootOutputPath>
     </PropertyGroup>
@@ -20,7 +20,7 @@
         <Authors>Philipp Schmalenbach</Authors>
         <Nullable>enable</Nullable>
         <NeutralLanguage>en-US</NeutralLanguage>
-        <LangVersion>12</LangVersion>
+        <LangVersion>13</LangVersion>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
         
         <AssemblyVersion>$(FrostseekSolutionVersion)</AssemblyVersion>
