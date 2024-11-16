@@ -9,17 +9,21 @@ on:
 
 env:
     BUILD_CONFIGURATION: ${{ fromJSON('["Debug", "Release"]')[startsWith(github.ref, 'refs/tags/')] }}
-    BUILD_DOTNET_VERSION: 8.0.x
+    BUILD_DOTNET_VERSION: |
+        8.0.x
+        9.0.x
+    BUILD_DOTNET_QUALITY: "ga"
 
 jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            -   uses: actions/checkout@v3
+            -   uses: actions/checkout@v4
             -   name: Setup .NET
-                uses: actions/setup-dotnet@v2
+                uses: actions/setup-dotnet@v4
                 with:
                     dotnet-version: ${{ env.BUILD_DOTNET_VERSION }}
+                    dotnet-quality: ${{ env.BUILD_DOTNET_QUALITY }}
             -   name: Restore dependencies
                 run: dotnet restore
             -   name: Build
@@ -29,7 +33,7 @@ jobs:
             -   name: Pack
                 run: dotnet pack --configuration $BUILD_CONFIGURATION --no-build
             -   name: Upload build output
-                uses: actions/upload-artifact@v3
+                uses: actions/upload-artifact@v4
                 with:
                     name: build-output
                     path: artifacts/main/Ayasuna.Frostseek/lib/
@@ -42,11 +46,12 @@ jobs:
             - build
         steps:
             -   name: Setup .NET
-                uses: actions/setup-dotnet@v2
+                uses: actions/setup-dotnet@v4
                 with:
                     dotnet-version: ${{ env.BUILD_DOTNET_VERSION }}
+                    dotnet-quality: ${{ env.BUILD_DOTNET_QUALITY }}
             -   name: Download build output
-                uses: actions/download-artifact@v3
+                uses: actions/download-artifact@v4
                 with:
                     name: build-output
                     path: output
