@@ -31,7 +31,7 @@ public sealed class DotnetCliUsingDotnetOperationsProvider : IDotnetOperationsPr
         (
             targetDirectory,
             Dotnet,
-            $"new sln --name {name} --output {targetDirectory}",
+            $"new sln --name {name} --format slnx --output {targetDirectory}",
             msg => _logger.LogInformation("{msg}", msg),
             cancellationToken
         );
