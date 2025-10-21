@@ -4,8 +4,8 @@ using System;
 using System.CommandLine;
 using System.CommandLine.Parsing;
 using System.IO;
-using Data;
-using Executor;
+using Ayasuna.Frostseek.Data;
+using Ayasuna.Frostseek.Executor;
 using Microsoft.Extensions.DependencyInjection;
 
 /// <summary>

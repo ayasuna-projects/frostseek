@@ -3,8 +3,8 @@ namespace Ayasuna.Frostseek.Providers.Git;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Ayasuna.Frostseek.Utility;
 using Microsoft.Extensions.Logging;
-using Utility;
 
 /// <summary>
 /// Implementation of <see cref="IGitOperationsProvider"/> which uses the <c>git</c> CLI.

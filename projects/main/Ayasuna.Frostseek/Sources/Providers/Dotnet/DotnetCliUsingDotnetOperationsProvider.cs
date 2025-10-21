@@ -3,8 +3,8 @@ namespace Ayasuna.Frostseek.Providers.Dotnet;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Ayasuna.Frostseek.Utility;
 using Microsoft.Extensions.Logging;
-using Utility;
 
 /// <summary>
 /// <see cref="IDotnetOperationsProvider"/> implementation that uses the <c>dotnet</c> CLI to provide the operations.

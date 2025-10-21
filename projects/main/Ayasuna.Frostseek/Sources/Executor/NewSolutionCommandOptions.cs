@@ -1,7 +1,7 @@
 namespace Ayasuna.Frostseek.Executor;
 
 using System.IO;
-using Data;
+using Ayasuna.Frostseek.Data;
 
 /// <summary>
 /// Represents the options that are available when creating a new solution

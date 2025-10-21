@@ -6,10 +6,10 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Data;
+using Ayasuna.Frostseek.Data;
+using Ayasuna.Frostseek.Providers.Dotnet;
+using Ayasuna.Frostseek.Utility;
 using Microsoft.Extensions.Logging;
-using Providers.Dotnet;
-using Utility;
 
 /// <inheritdoc />
 public sealed class NewProjectCommandExecutor : ICommandExecutor<NewProjectCommandOptions>

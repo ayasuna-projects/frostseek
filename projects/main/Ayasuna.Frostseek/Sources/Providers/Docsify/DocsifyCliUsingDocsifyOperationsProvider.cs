@@ -4,8 +4,8 @@ using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Ayasuna.Frostseek.Utility;
 using Microsoft.Extensions.Logging;
-using Utility;
 
 /// <summary>
 /// Implementation of <see cref="IDocsifyOperationsProvider"/> that uses the <c>docsify</c> CLI.

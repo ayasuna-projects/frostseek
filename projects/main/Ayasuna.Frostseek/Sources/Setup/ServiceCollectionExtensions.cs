@@ -1,13 +1,13 @@
 namespace Ayasuna.Frostseek.Setup;
 
 using System.CommandLine;
-using Executor;
+using Ayasuna.Frostseek.Executor;
+using Ayasuna.Frostseek.Providers.Docsify;
+using Ayasuna.Frostseek.Providers.Dotnet;
+using Ayasuna.Frostseek.Providers.Git;
+using Ayasuna.Frostseek.Utility;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Providers.Docsify;
-using Providers.Dotnet;
-using Providers.Git;
-using Utility;
 
 /// <summary>
 /// Extension methods for <see cref="IServiceCollection"/>

@@ -6,12 +6,12 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Data;
+using Ayasuna.Frostseek.Data;
+using Ayasuna.Frostseek.Providers.Docsify;
+using Ayasuna.Frostseek.Providers.Dotnet;
+using Ayasuna.Frostseek.Providers.Git;
+using Ayasuna.Frostseek.Utility;
 using Microsoft.Extensions.Logging;
-using Providers.Docsify;
-using Providers.Dotnet;
-using Providers.Git;
-using Utility;
 
 /// <inheritdoc />
 public sealed class NewSolutionCommandExecutor : ICommandExecutor<NewSolutionCommandOptions>

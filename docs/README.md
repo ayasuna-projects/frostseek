@@ -82,7 +82,7 @@ frostseek new project
   --solution $SOLUTION_FILE
   [--type Main|Meta|Test]
   [--target /relative/target/directory]
-  [--template Application|Library|XUnit]
+  [--template Application|Library]
 ```
 
 #### Description
@@ -127,8 +127,6 @@ to `$(FrostseekApplicationTargetFrameworks)`.
 
 `Library` (default) will create a new C# project with it's output type set to `Library` and it's target framework set
 to `$(FrostseekLibraryTargetFrameworks)`
-
-`XUnit` will create a new C# unit test project that uses xUnit.
 
 ### `frostseek -h`
 
