@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <FrostseekDefaultTargetFrameworks>net8.0;net9.0</FrostseekDefaultTargetFrameworks>
+        <FrostseekDefaultTargetFrameworks>net8.0;net9.0;net10.0</FrostseekDefaultTargetFrameworks>
         <FrostseekAnalyzerTargetFramework>netstandard2.0</FrostseekAnalyzerTargetFramework>
 
         <FrostseekRootOutputPath>$(MSBuildThisFileDirectory)../artifacts/$(FrostseekProjectType)/$(MSBuildProjectName)/</FrostseekRootOutputPath>

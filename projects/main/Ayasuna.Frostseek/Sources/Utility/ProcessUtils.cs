@@ -36,7 +36,7 @@ public static class ProcessUtils
 
         while (!process.StandardOutput.EndOfStream)
         {
-            var line = await process.StandardOutput.ReadLineAsync();
+            var line = await process.StandardOutput.ReadLineAsync(cancellationToken);
 
             if (line is { Length: > 0 })
             {
