@@ -2723,7 +2723,6 @@ resharper_merge_conditional_expression_highlighting = suggestion
 resharper_merge_conditional_expression_when_possible_highlighting = none
 resharper_merge_into_logical_pattern_highlighting = hint
 resharper_merge_into_negated_pattern_highlighting = hint
-resharper_merge_into_pattern_highlighting = suggestion
 resharper_merge_nested_property_patterns_highlighting = suggestion
 resharper_merge_sequential_checks_highlighting = hint
 resharper_merge_sequential_checks_when_possible_highlighting = none
@@ -3427,6 +3426,8 @@ resharper_xaml_xaml_unknown_device_family_type_highlighting_highlighting = warni
 resharper_xaml_xaml_xamarin_forms_data_type_and_binding_context_type_mismatched_highlighting_highlighting = warning
 resharper_xaml_x_key_attribute_disallowed_highlighting = error
 resharper_xunit_xunit_test_with_console_output_highlighting = warning
+resharper_async_method_without_await_highlighting = none
+resharper_merge_into_pattern_highlighting = none
 
 [*.{appxmanifest,asax,ascx,aspx,axaml,build,c,c++,cc,cginc,compute,cp,cpp,cs,cshtml,cu,cuh,cxx,dtd,fs,fsi,fsscript,fsx,fx,fxh,h,hh,hlsl,hlsli,hlslinc,hpp,hxx,inc,inl,ino,ipp,master,ml,mli,mpp,mq4,mq5,mqh,nuspec,paml,razor,resw,resx,shader,skin,tpp,usf,ush,vb,xaml,xamlx,xoml,xsd}]
 indent_style = space
